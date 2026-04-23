@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="40%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.1)"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="500" fill="url(#bg)"/>
+
+  <!-- 배경 장식 이모지 -->
+  <g opacity="0.1">
+    <text x="80" y="120" font-size="120">🎭</text>
+    <text x="880" y="90" font-size="100">🎨</text>
+    <text x="920" y="430" font-size="110">🎪</text>
+    <text x="60" y="440" font-size="95">🎟️</text>
+    <text x="470" y="80" font-size="80">✨</text>
+  </g>
+
+  <!-- 메인 이모지 -->
+  <g transform="translate(140 250)">
+    <circle r="140" fill="rgba(255,255,255,0.15)"/>
+    <circle r="120" fill="rgba(255,255,255,0.1)"/>
+    <text text-anchor="middle" dominant-baseline="central" font-size="160">🎫</text>
+  </g>
+
+  <!-- 타이틀 -->
+  <g font-family="'Noto Sans KR', sans-serif" fill="white">
+    <text x="340" y="180" font-size="88" font-weight="900">주말뭐해</text>
+    <text x="340" y="255" font-size="32" font-weight="500" opacity="0.95">매일 업데이트되는 전국 공연·전시</text>
+    <text x="340" y="300" font-size="32" font-weight="500" opacity="0.95">큐레이션 서비스</text>
+
+    <!-- 해시태그 -->
+    <g font-size="22" opacity="0.9">
+      <text x="340" y="380">#오늘시작 #마감임박 #데이트코스 #주말나들이</text>
+    </g>
+  </g>
+</svg>
