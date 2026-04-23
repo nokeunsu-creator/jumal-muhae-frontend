@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
+import Onboarding, { shouldShowOnboarding } from './components/Onboarding.jsx'
 import Home from './components/Home.jsx'
 import PerformanceList from './components/PerformanceList.jsx'
 import PerformanceDetail from './components/PerformanceDetail.jsx'
@@ -14,10 +16,16 @@ import Licenses from './components/more/Licenses.jsx'
 import AppInfo from './components/more/AppInfo.jsx'
 
 export default function App() {
+  const [showOnboarding, setShowOnboarding] = useState(() => shouldShowOnboarding())
+
+  if (showOnboarding) {
+    return <Onboarding onFinish={() => setShowOnboarding(false)} />
+  }
+
   return (
     <div className="app">
       <header className="app-header">
-        <NavLink to="/" className="brand">🎭 주말뭐해</NavLink>
+        <NavLink to="/" className="brand">🎫 주말뭐해</NavLink>
       </header>
 
       <main className="page">

@@ -303,6 +303,110 @@ input, select, textarea {
   text-decoration: none !important;
 }
 
+/* ── 온보딩 ── */
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, var(--primary) 0%, #5B21B6 100%);
+  color: #fff;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 24px calc(24px + env(safe-area-inset-bottom));
+}
+.onboarding-skip {
+  position: absolute;
+  top: calc(16px + env(safe-area-inset-top));
+  right: 16px;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  padding: 8px 12px;
+}
+.onboarding-slide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.onboarding-emoji {
+  font-size: 96px;
+  margin-bottom: 32px;
+  animation: float 2.5s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.onboarding-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.onboarding-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  white-space: pre-line;
+  opacity: 0.92;
+}
+.onboarding-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 28px 0;
+}
+.onboarding-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+}
+.onboarding-dots .dot.active {
+  background: #fff;
+  width: 24px;
+  border-radius: 999px;
+}
+.onboarding-next {
+  background: #fff;
+  color: var(--primary);
+  padding: 16px;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ── 스켈레톤 ── */
+.skeleton {
+  background: linear-gradient(90deg, #F0ECF9 0%, #E8E2F5 50%, #F0ECF9 100%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.2s infinite linear;
+  border-radius: 6px;
+}
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton-line { border-radius: 4px; }
+.skeleton-wrap .thumb { background: none; }
+
+/* ── 빈 상태 / 에러 상태 ── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+}
+.empty-emoji { font-size: 48px; margin-bottom: 12px; }
+.empty-message { font-size: 14px; line-height: 1.6; white-space: pre-line; }
+.retry-button {
+  margin-top: 16px;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
 /* ── 라이선스 ── */
 .license-list {
   display: flex;
