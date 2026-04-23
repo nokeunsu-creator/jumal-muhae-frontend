@@ -1,16 +1,24 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getDetail } from '../api/api.js'
+import { isFavorite, toggleFavorite } from '../utils/favorites.js'
 
 export default function PerformanceDetail() {
   const { id } = useParams()
   const [p, setP] = useState(null)
   const [error, setError] = useState(null)
+  const [fav, setFav] = useState(false)
 
   useEffect(() => {
     setP(null)
+    setFav(isFavorite(id))
     getDetail(id).then(setP).catch(e => setError(e.message))
   }, [id])
+
+  const handleToggleFav = () => {
+    toggleFavorite(id)
+    setFav(v => !v)
+  }
 
   if (error) return <div className="empty">⚠️ {error}</div>
   if (!p) return <div className="loading">불러오는 중...</div>
@@ -25,7 +33,21 @@ export default function PerformanceDetail() {
           style={{ width: '100%', borderRadius: 'var(--radius)', margin: '12px 0' }}
           onError={(e) => { e.currentTarget.style.display = 'none' }} />
       )}
-      <h1 style={{ fontSize: 20, marginBottom: 8 }}>{p.title}</h1>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12, marginBottom: 8 }}>
+        <h1 style={{ fontSize: 20, flex: 1, minWidth: 0 }}>{p.title}</h1>
+        <button
+          onClick={handleToggleFav}
+          aria-label={fav ? '찜 해제' : '찜하기'}
+          style={{
+            fontSize: 28,
+            background: 'none',
+            padding: 0,
+            color: fav ? 'var(--accent)' : 'var(--muted)',
+            flexShrink: 0,
+          }}>
+          {fav ? '★' : '☆'}
+        </button>
+      </div>
       {p.category && <span className="badge">{p.category}</span>}
 
       <div className="card" style={{ marginTop: 16 }}>
