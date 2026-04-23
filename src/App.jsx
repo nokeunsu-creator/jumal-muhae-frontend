@@ -7,6 +7,7 @@ import PerformanceDetail from './components/PerformanceDetail.jsx'
 import MapView from './components/MapView.jsx'
 import Favorites from './components/Favorites.jsx'
 import More from './components/More.jsx'
+import CollectionView from './components/CollectionView.jsx'
 import About from './components/more/About.jsx'
 import Guide from './components/more/Guide.jsx'
 import Terms from './components/more/Terms.jsx'
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/map" element={<MapView />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/perf/:id" element={<PerformanceDetail />} />
+          <Route path="/collections/:key" element={<CollectionView />} />
           <Route path="/more" element={<More />} />
           <Route path="/about" element={<About />} />
           <Route path="/guide" element={<Guide />} />

@@ -1,7 +1,12 @@
 import { useEffect, useState, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { getToday, getEndingSoon } from '../api/api.js'
 import PerformanceCard from './PerformanceCard.jsx'
 import { CardSkeleton, EmptyState, ErrorState } from './Skeleton.jsx'
+import WeekendHero from './WeekendHero.jsx'
+import WeatherWidget from './WeatherWidget.jsx'
+import DDayWidget from './DDayWidget.jsx'
+import { COLLECTIONS } from '../utils/collections.js'
 
 export default function Home() {
   const [today, setToday] = useState(null)
@@ -23,6 +28,21 @@ export default function Home() {
 
   return (
     <>
+      <WeekendHero />
+      <WeatherWidget />
+      <DDayWidget />
+
+      <h2 className="section-title">✨ 주제별 컬렉션</h2>
+      <div className="collection-scroll">
+        {COLLECTIONS.slice(1).map(c => (
+          <Link key={c.key} to={`/collections/${c.key}`} className="collection-chip"
+                style={{ background: c.color }}>
+            <span className="collection-chip-icon">{c.icon}</span>
+            <span>{c.title}</span>
+          </Link>
+        ))}
+      </div>
+
       <h2 className="section-title">🆕 오늘 시작하는 공연·전시</h2>
       {today === null ? (
         <CardSkeleton count={3} />

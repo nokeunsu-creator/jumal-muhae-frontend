@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getDetail } from '../api/api.js'
 import { isFavorite, toggleFavorite } from '../utils/favorites.js'
+import ShareButton from './ShareButton.jsx'
 
 export default function PerformanceDetail() {
   const { id } = useParams()
@@ -47,6 +48,11 @@ export default function PerformanceDetail() {
           }}>
           {fav ? '★' : '☆'}
         </button>
+        <ShareButton
+          title={p.title}
+          text={`[주말뭐해] ${p.title} - ${p.venueName || ''}`}
+          size={26}
+          style={{ flexShrink: 0 }} />
       </div>
       {p.category && <span className="badge">{p.category}</span>}
 
