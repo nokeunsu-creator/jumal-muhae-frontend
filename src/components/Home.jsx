@@ -6,6 +6,7 @@ import { CardSkeleton, EmptyState, ErrorState } from './Skeleton.jsx'
 import WeekendHero from './WeekendHero.jsx'
 import WeatherWidget from './WeatherWidget.jsx'
 import DDayWidget from './DDayWidget.jsx'
+import HomeDailyGame from './HomeDailyGame.jsx'
 import { COLLECTIONS } from '../utils/collections.js'
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
     <>
       <WeekendHero />
       <WeatherWidget />
+      <HomeDailyGame />
       <DDayWidget />
 
       <h2 className="section-title">✨ 주제별 컬렉션</h2>

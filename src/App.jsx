@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Routes, Route, NavLink } from 'react-router-dom'
-import Onboarding, { shouldShowOnboarding } from './components/Onboarding.jsx'
+import { shouldShowOnboarding } from './components/Onboarding.jsx'
+import CultureMbti from './components/games/CultureMbti.jsx'
+import GamesHub from './components/games/GamesHub.jsx'
+import WeekendRoulette from './components/games/WeekendRoulette.jsx'
+import DailyQuiz from './components/games/DailyQuiz.jsx'
 import Home from './components/Home.jsx'
 import PerformanceList from './components/PerformanceList.jsx'
 import PerformanceDetail from './components/PerformanceDetail.jsx'
@@ -20,7 +24,10 @@ export default function App() {
   const [showOnboarding, setShowOnboarding] = useState(() => shouldShowOnboarding())
 
   if (showOnboarding) {
-    return <Onboarding onFinish={() => setShowOnboarding(false)} />
+    return <CultureMbti isOnboarding onDone={() => {
+      try { localStorage.setItem('jumal-muhae-onboarding-done', 'true') } catch {}
+      setShowOnboarding(false)
+    }} />
   }
 
   return (
@@ -37,6 +44,10 @@ export default function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/perf/:id" element={<PerformanceDetail />} />
           <Route path="/collections/:key" element={<CollectionView />} />
+          <Route path="/games" element={<GamesHub />} />
+          <Route path="/games/mbti" element={<CultureMbti />} />
+          <Route path="/games/roulette" element={<WeekendRoulette />} />
+          <Route path="/games/quiz" element={<DailyQuiz />} />
           <Route path="/more" element={<More />} />
           <Route path="/about" element={<About />} />
           <Route path="/guide" element={<Guide />} />

@@ -303,6 +303,294 @@ input, select, textarea {
   text-decoration: none !important;
 }
 
+/* ── 오늘의 게임 (홈 카드) ── */
+.daily-game-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: var(--radius);
+  color: #fff !important;
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+  text-decoration: none !important;
+}
+.daily-game-emoji { font-size: 36px; flex-shrink: 0; }
+.daily-game-content { flex: 1; min-width: 0; }
+.daily-game-label { font-size: 11px; opacity: 0.9; margin-bottom: 2px; }
+.daily-game-title { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+.daily-game-desc { font-size: 12px; opacity: 0.92; }
+.daily-game-chevron { font-size: 24px; opacity: 0.7; }
+
+/* ── 게임 허브 ── */
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.game-card {
+  color: #fff !important;
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none !important;
+  box-shadow: var(--shadow);
+}
+.game-emoji { font-size: 36px; flex-shrink: 0; }
+.game-title { font-size: 17px; font-weight: 700; margin-bottom: 2px; }
+.game-desc { font-size: 12px; opacity: 0.92; }
+
+/* ── MBTI ── */
+.mbti-wrap {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 24px 8px;
+}
+.mbti-intro { text-align: center; }
+.mbti-intro-emoji { font-size: 80px; margin-bottom: 16px; }
+.mbti-intro h1 { font-size: 28px; margin-bottom: 12px; }
+.mbti-intro p { color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+
+.mbti-progress {
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.mbti-progress-bar {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+.mbti-step {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+.mbti-question {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  padding: 0 8px;
+}
+.mbti-option {
+  width: 100%;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+  transition: all 0.15s ease;
+}
+.mbti-option:active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  transform: scale(0.98);
+}
+
+.mbti-result { text-align: center; }
+.mbti-result-emoji { font-size: 80px; margin-bottom: 8px; }
+.mbti-result-code {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+.mbti-result h1 { font-size: 24px; margin-bottom: 14px; }
+.mbti-result-desc {
+  color: var(--muted);
+  line-height: 1.7;
+  white-space: pre-line;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.mbti-recommend {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+.mbti-recommend-title { font-size: 14px; margin-bottom: 10px; font-weight: 600; }
+.mbti-recommend-chips {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.mbti-chip {
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.mbti-tip {
+  background: #FEF3C7;
+  color: #92400E;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+.mbti-cta {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  padding: 16px;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+.mbti-cta:disabled { opacity: 0.5; }
+.mbti-skip {
+  width: 100%;
+  background: none;
+  color: var(--muted);
+  font-size: 14px;
+  padding: 14px;
+  margin-top: 4px;
+}
+
+/* ── 룰렛 ── */
+.roulette-panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 12px;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.roulette-slot {
+  flex: 1;
+  text-align: center;
+  background: var(--primary-light);
+  border-radius: 12px;
+  padding: 14px 6px;
+}
+.roulette-slot-icon { font-size: 24px; }
+.roulette-slot-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.roulette-slot-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  min-height: 24px;
+}
+.roulette-slot.rolling .roulette-slot-value {
+  animation: shake 0.08s infinite;
+}
+@keyframes shake {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.roulette-result {
+  margin-top: 20px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.roulette-result-text {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* ── 퀴즈 ── */
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+.quiz-date { color: var(--muted); }
+.quiz-streak {
+  background: #FEF3C7;
+  color: #92400E;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.quiz-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.quiz-tag {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.quiz-question {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quiz-option {
+  width: 100%;
+  background: var(--bg);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 14px;
+  text-align: left;
+  color: var(--text);
+  transition: all 0.15s;
+}
+.quiz-option:active { transform: scale(0.98); }
+.quiz-option.selected { border-color: var(--primary); background: var(--primary-light); }
+.quiz-option.correct { border-color: #10B981; background: #D1FAE5; color: #065F46; }
+.quiz-option.wrong { border-color: #EF4444; background: #FEE2E2; color: #991B1B; }
+.quiz-result {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+.quiz-result.success { background: #D1FAE5; color: #065F46; }
+.quiz-result.fail { background: #FEE2E2; color: #991B1B; }
+
 /* ── 주말 히어로 ── */
 .hero-card {
   background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);

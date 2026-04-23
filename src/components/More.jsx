@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const MENU_ITEMS = [
+  { to: '/games',     icon: '🎮', label: '미니게임' },
   { to: '/about',     icon: '🏠', label: '서비스 소개' },
   { to: '/guide',     icon: '📖', label: '이용 가이드' },
   { to: '/contact',   icon: '💌', label: '문의하기' },
